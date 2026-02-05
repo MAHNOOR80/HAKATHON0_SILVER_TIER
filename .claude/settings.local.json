@@ -1,0 +1,6 @@
+{
+  "enabledMcpjsonServers": [
+    "silver-email"
+  ],
+  "enableAllProjectMcpServers": true
+}

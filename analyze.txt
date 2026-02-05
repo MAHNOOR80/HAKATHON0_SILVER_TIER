@@ -1,0 +1,32 @@
+HACKATHON DELIVERABLES: SILVER TIER (FUNCTIONAL ASSISTANT)
+==========================================================
+
+ESTIMATED TIME: 20-30 hours
+
+1. ALL BRONZE TIER REQUIREMENTS
+   - Obsidian vault setup with 'Dashboard.md' and 'Company_Handbook.md'.
+   - Basic folder structure: /Inbox, /Needs_Action, /Done.
+   - Claude Code successfully reading from and writing to the vault.
+   - One working Watcher script (Gmail OR file system monitoring).
+   - All AI functionality implemented as 'Agent Skills'.
+
+2. EXPANDED PERCEPTION
+   - Implementation of two or more Watcher scripts (e.g., Gmail + WhatsApp + LinkedIn).
+
+3. BUSINESS AUTOMATION
+   - Ability to automatically post on LinkedIn about business to generate sales.
+
+4. REASONING LOOP
+   - Claude reasoning loop that autonomously creates 'Plan.md' files.
+
+5. EXTERNAL ACTIONS (THE HANDS)
+   - One working MCP (Model Context Protocol) server for external actions (e.g., sending emails).
+
+6. HUMAN-IN-THE-LOOP (HITL)
+   - Established approval workflow for sensitive actions (e.g., moving files to an /Approved folder before execution).
+
+7. SCHEDULING
+   - Basic task scheduling implemented via cron (Mac/Linux) or Task Scheduler (Windows).
+
+8. TECHNICAL STANDARD
+   - All AI functionality must be implemented as Agent Skills.

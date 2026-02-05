@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "silver-email": {
+      "command": "node",
+      "args": ["C:\\Hakathon0_ai_employee\\Silver\\mcp_server\\mcp_server.js"]
+    }
+  }
+}
