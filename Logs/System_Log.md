@@ -8,6 +8,21 @@ Central log for all AI Employee activity and system events.
 
 | Timestamp | Action | Details |
 |-----------|--------|---------|
+| 2026-02-13 21:52 | MCP Action | send_email to mahno9248@gmail.com: Success (ID: e426fb07) — Reply to farewell invitation |
+| 2026-02-13 21:52 | Approval Executed | Task "Reply to Farewell Invitation (MAHNOOR)" approved by user — email sent, moved to Done |
+| 2026-02-13 21:50 | Approval Gate | Task "Reply to Farewell Invitation (MAHNOOR)" requires approval for send_email — moved to Pending_Approval |
+| 2026-02-13 21:48 | MCP Action | send_email to mahno9248@gmail.com: Success (ID: 598b92b3) — Reply to birthday invitation |
+| 2026-02-13 21:48 | Approval Executed | Task "Reply to Birthday Invitation (MAHNOOR)" approved by user — email sent, moved to Done |
+| 2026-02-13 21:45 | Approval Gate | Task "Reply to Birthday Invitation (MAHNOOR)" requires approval for send_email — moved to Pending_Approval |
+| 2026-02-13 21:33 | Gmail Watcher Started | Mode: LIVE (OAuth 2.0), interval: 60s |
+| 2026-02-12 16:03 | Gmail Watcher Stopped | Processed 2 email(s) |
+| 2026-02-12 15:51 | Gmail Watcher Started | Mode: LIVE (OAuth 2.0), interval: 60s |
+| 2026-02-12 15:45 | Gmail Watcher Stopped | Processed 3 email(s) |
+| 2026-02-12 15:15 | Gmail Watcher Started | Mode: LIVE (OAuth 2.0), interval: 60s |
+| 2026-02-12 14:44 | Gmail Watcher Stopped | Processed 1 email(s) |
+| 2026-02-12 14:44 | Gmail Watcher Started | Mode: DEMO, interval: 60s |
+| 2026-02-12 14:39 | Gmail Watcher Stopped | Processed 3 email(s) |
+| 2026-02-12 14:34 | Gmail Watcher Started | Mode: DEMO, checking every 60s |
 | 2026-02-06 01:36 | Gmail Watcher Started | Mode: DEMO, checking every 60s |
 | 2026-02-06 01:22 | Gmail Watcher | gmail_watcher.py created — IMAP monitoring with demo mode, auto-creates tasks from emails. Smoke test passed |
 | 2026-02-06 01:22 | MCP Tool Added | post_linkedin tool added to mcp_server.js — LinkedIn API posting with test/demo mode, content validation, visibility control |

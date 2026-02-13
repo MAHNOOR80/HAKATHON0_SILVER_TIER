@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "System_Log"
             }
+          },
+          {
+            "id": "ce14b0bc73c3e1d6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Needs_Action/task_email_Hackathon 2.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "task_email_Hackathon 2"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -183,13 +198,23 @@
       "bases:Create new base": false
     }
   },
-  "active": "0d2ae25f093521e8",
+  "active": "ce14b0bc73c3e1d6",
   "lastOpenFiles": [
-    "Needs_Action/task_email_Weekly Industry Digest - AI Trends.md",
     "Needs_Action/task_email_Partnership Opportunity - AI Consulting_1.md",
-    "Needs_Action/task_email_Project Proposal Review Request_1.md",
+    "Needs_Action/task_email_Hackathon 2.md",
+    "Needs_Action/task_email_Security alert_2.md",
+    "token.json",
+    "Needs_Action/task_email_Hackathon Test-AI employee.md",
+    "Needs_Action/task_email_Security alert_1.md",
+    "Needs_Action/task_email_Security alert.md",
+    "credentials.json",
+    "Needs_Action/task_email_Project Proposal Review Request_2.md",
+    "Needs_Action/task_email_Weekly Industry Digest - AI Trends_1.md",
     "Needs_Action/task_email_Partnership Opportunity - AI Consulting.md",
     "Needs_Action/task_email_Project Proposal Review Request.md",
+    "credentials.json.json",
+    "Needs_Action/task_email_Weekly Industry Digest - AI Trends.md",
+    "Needs_Action/task_email_Project Proposal Review Request_1.md",
     "Done/task_user_notes.py.md",
     "Done/task_client_notes.txt.md",
     "Done/task_class_notes.txt.md",

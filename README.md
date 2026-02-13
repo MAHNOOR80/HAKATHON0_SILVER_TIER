@@ -66,7 +66,7 @@ Silver/
 | # | Requirement | Implementation | Status |
 |---|------------|----------------|--------|
 | 1 | Bronze Tier foundations | Obsidian vault, Dashboard, Handbook, folders, file watcher, Agent Skills | Done |
-| 2 | Expanded Perception (2+ watchers) | `file_watcher.py` + `gmail_watcher.py` | Done |
+| 2 | Expanded Perception (2+ watchers) | `file_watcher.py` + `gmail_watcher.py` (OAuth 2.0) | Done |
 | 3 | Business Automation (LinkedIn) | `LinkedIn_Post_Skill.md` + `post_linkedin` MCP tool | Done |
 | 4 | Reasoning Loop (Plan.md) | `Plan_Tasks_Skill.md` generates plans in `/Plans/` | Done |
 | 5 | External Actions (MCP) | `mcp_server.js` with send_email, post_linkedin, check_email_config | Done |
@@ -81,7 +81,7 @@ Silver/
 ```
 1. PERCEPTION: Watchers detect new input
    file_watcher.py  -->  new file in /Inbox/     -->  task in /Needs_Action/
-   gmail_watcher.py -->  new email in Gmail       -->  task in /Needs_Action/
+   gmail_watcher.py -->  new email in Gmail (OAuth 2.0) -->  task in /Needs_Action/
 
 2. PLANNING: AI creates execution plans
    Plan_Tasks_Skill  -->  analyzes /Needs_Action/  -->  Plan.md in /Plans/
@@ -136,32 +136,41 @@ python file_watcher.py
 - Duplicate prevention via processed file tracking
 - Error logging to `Logs/watcher_errors.log`
 
-#### gmail_watcher.py - Gmail IMAP Monitor
+#### gmail_watcher.py - Gmail OAuth 2.0 Monitor
 
-Monitors a Gmail inbox for new emails and auto-creates task files.
+Monitors a Gmail inbox for new emails and auto-creates task files using the Gmail API with OAuth 2.0.
 
 ```bash
-# Demo mode (no credentials needed):
+# Demo mode (no credentials.json needed):
 python gmail_watcher.py
 
-# Live mode (with credentials):
-set GMAIL_USER=your_email@gmail.com
-set GMAIL_APP_PASSWORD=your_app_password
+# Live mode (with OAuth credentials):
+# Place credentials.json in project root, then:
 python gmail_watcher.py
+# Browser opens for Google login on first run
 ```
 
-- Checks every 60 seconds via IMAP
-- Parses sender, subject, body from emails
+- Checks every 60 seconds via Gmail API
+- Full OAuth 2.0 flow with automatic token refresh
+- Parses sender, subject, body, labels, and snippet from emails
 - Smart approval detection (flags emails requesting replies)
+- Marks processed emails as read and applies "ProcessedByAI" label
 - Demo mode simulates 3 incoming emails for demonstration
 - Duplicate prevention via Message-ID tracking
 - Error logging to `Logs/gmail_watcher_errors.log`
 
 **Gmail Setup (Live Mode):**
-1. Enable IMAP in Gmail: Settings > See all settings > Forwarding and POP/IMAP
-2. Enable 2-Step Verification on your Google Account
-3. Generate App Password: Google Account > Security > App Passwords
-4. Set environment variables: `GMAIL_USER` and `GMAIL_APP_PASSWORD`
+1. Go to Google Cloud Console > APIs & Services > Credentials
+2. Create an OAuth 2.0 Client ID (Desktop app)
+3. Download `credentials.json` to the project root
+4. Enable the Gmail API in your Google Cloud project
+5. Run `python gmail_watcher.py` — a browser window opens for login
+6. Grant Gmail permissions — `token.json` is saved automatically for future runs
+
+**Required packages:**
+```bash
+pip install google-auth google-auth-oauthlib google-api-python-client
+```
 
 ### MCP Server (External Actions)
 
@@ -312,8 +321,8 @@ cd Silver
 # 2. Install MCP server dependencies
 cd mcp_server && npm install && cd ..
 
-# 3. Install Python scheduler dependency
-pip install schedule
+# 3. Install Python dependencies
+pip install schedule google-auth google-auth-oauthlib google-api-python-client
 
 # 4. Start the file watcher (Terminal 1)
 python file_watcher.py
@@ -330,7 +339,7 @@ python scheduler.py
 ### Testing Without Credentials
 
 Everything works in **demo/test mode** out of the box:
-- **Gmail watcher**: Simulates 3 incoming emails
+- **Gmail watcher**: Simulates 3 incoming emails (falls back to demo mode when `credentials.json` is absent)
 - **MCP send_email**: Routes through Ethereal test SMTP
 - **MCP post_linkedin**: Logs post content, returns simulated post ID
 - **Approval workflow**: Fully functional with local files

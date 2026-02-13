@@ -19,6 +19,7 @@
  *   Set environment variables for SMTP credentials (see .env.example)
  */
 
+import 'dotenv/config';
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import {
